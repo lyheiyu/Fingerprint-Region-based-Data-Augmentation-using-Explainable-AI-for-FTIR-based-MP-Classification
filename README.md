@@ -1,5 +1,8 @@
 # FRDA: Fingerprint Region based Data Augmentation using Explainable AI for FTIR based Microplastic Classification
 
+## # FRDA
+In this algorithm， there are 3 MP dataset, so you can find in 3 py file for different dataset augmenting.
+
 
 
 ## # Datasets
