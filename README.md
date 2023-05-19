@@ -27,11 +27,9 @@ clf.fit(x_train, y_train)
 --saving model  
 joblib.dump(clf, 'svm_model.pkl')  
 --loading model
-loaded_model = joblib.load('svm_model.pkl')
-
-# Testing
-
-predictions = loaded_model.predict(x_test)
+loaded_model = joblib.load('svm_model.pkl')  
+--Testing  
+predictions = loaded_model.predict(x_test)  
 
 ## # Datasets
 
