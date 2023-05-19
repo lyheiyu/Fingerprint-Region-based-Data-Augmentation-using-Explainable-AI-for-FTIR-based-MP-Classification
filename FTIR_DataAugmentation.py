@@ -324,8 +324,8 @@ if __name__ == '__main__':
             intensityforRandomLoop=[]
             idexes=np.arange(len(intensityForLoop))
 
-            indexForIntensity=idexes.take(range(0,100),mode='wrap')
-            indexForIntensity=random.sample(list(indexForIntensity),30)
+            indexForIntensity=idexes.take(range(0,30),mode='wrap')
+            #indexForIntensity=random.sample(list(indexForIntensity),30)
             # print(indexForIntensity)
             intensityforRandomLoop=intensityForLoop[indexForIntensity]
             data2D, label = generatedataBySperateLSforEach10(waveLength, intensityforRandomLoop, n,firstIdx,lastIdx,200)
