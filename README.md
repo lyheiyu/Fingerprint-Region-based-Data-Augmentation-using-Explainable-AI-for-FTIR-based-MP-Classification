@@ -13,11 +13,12 @@ For save the model, you can use the FTIR_example.py to load the model from the S
 If you want to save the trained model, the codes is in the file(FTIR_AugmentationMethodForseconddataset.py).
 
 Here is an example of saving and loading model.
-from sklearn import svm
-from sklearn import datasets
-import joblib
 
-polymerName, waveLength, intensity, polymerID, x_each, y_each = utils.parseData11('D4_4_publication11.csv', 2, 1763)
+##from sklearn import svm
+##from sklearn import datasets
+##import joblib
+
+##polymerName, waveLength, intensity, polymerID, x_each, y_each = utils.parseData11('D4_4_publication11.csv', 2, 1763)
 x_train, x_test, y_train, y_test = train_test_split(intensity, polymerID, test_size=0.3,
                                                             random_state=1)
 clf = svm.SVC()
