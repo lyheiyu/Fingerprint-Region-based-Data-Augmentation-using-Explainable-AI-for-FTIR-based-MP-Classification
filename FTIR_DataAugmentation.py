@@ -41,7 +41,7 @@ from sklearn import metrics
 from keras.utils import np_utils
 from sklearn.cluster import KMeans
 from FTIR_AugmentationBasedOnEMSA import emsc
-
+import joblib
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 def build_cam2(datas,n,PN):
     filter=64
@@ -238,19 +238,9 @@ if __name__ == '__main__':
     print(cmTotal.shape)
     nums=[0,1,2,7]
     for seedNum in range(20):
-        # x_train, x_test, y_train, y_test = train_test_split(intensity, polymerID, test_size=0.7, random_state=seedNum)
-        # x = np.arange(0, 1000, 1)
-        #
-        # waveLength = np.array(waveLength, dtype=np.float)
-
-        #PN = utils.getPN('data/D4_4_publication11.csv')
         y_add = []
         data_plot = []
-        # datas=x_train
-        # y_adds=y_train
-
-        x_train, x_test, y_train, y_test = train_test_split(intensity, polymerID, test_size=0.3,
-                                                            random_state=seedNum)
+        x_train, x_test, y_train, y_test = train_test_split(intensity, polymerID, test_size=0.3,random_state=seedNum)
         waveLength = np.array(waveLength, dtype=np.float)
         pID = []
         for item in y_train:
@@ -273,6 +263,7 @@ if __name__ == '__main__':
             intensityForLoop = x_train[indicesPS]
             datas.append(intensityForLoop)
             datas2.append(intensityForLoop)
+
         # for itr in range(len(PN)):
         # #for itr in nums:
         #     _, coefs_ = emsc(
@@ -309,7 +300,7 @@ if __name__ == '__main__':
         #         y_add.append(itr)
         #     from sklearn.preprocessing import normalize
         #
-        #     #augmentedSpectrum[0] = normalize(augmentedSpectrum[0], 'max')
+        #     augmentedSpectrum[0] = normalize(augmentedSpectrum[0], 'max')
         #     x_train = np.concatenate((x_train, augmentedSpectrum[0]), axis=0)
         #     y_train = np.concatenate((y_train, y_add), axis=0)
 
@@ -333,11 +324,11 @@ if __name__ == '__main__':
             intensityforRandomLoop=[]
             idexes=np.arange(len(intensityForLoop))
 
-            indexForIntensity=idexes.take(range(0,20),mode='wrap')
-            # indexForIntensity=random.sample(list(indexForIntensity),20)
+            indexForIntensity=idexes.take(range(0,100),mode='wrap')
+            indexForIntensity=random.sample(list(indexForIntensity),30)
             # print(indexForIntensity)
             intensityforRandomLoop=intensityForLoop[indexForIntensity]
-            data2D, label = generatedataBySperateLSforEach11(waveLength, intensityforRandomLoop, n,firstIdx,lastIdx,100)
+            data2D, label = generatedataBySperateLSforEach10(waveLength, intensityforRandomLoop, n,firstIdx,lastIdx,200)
 
             peaknosieforloop=[]
 
@@ -393,7 +384,8 @@ if __name__ == '__main__':
 
         model = model.fit(x_train, y_train)
         y_pre = model.predict(x_test)
-
+        #joblib.dump(model, 'Trained model/svm_model.pkl'+str(seedNum))
+        #model=joblib.load('Trained model/svm_model.pkl'+str(seedNum))
         utils.printScore(y_test, y_pre)
         # PN = utils.getPN('data/D4_4_publication11.csv')
         t = classification_report(y_test, y_pre, target_names=PN, output_dict=True)
@@ -432,7 +424,7 @@ if __name__ == '__main__':
     cmTotal = cmTotal / m
     print(cmTotal / m)
     plt.clf()
-    utils.plot_confusion_matrix(cmTotal,PN,'SA SVM')
+    utils.plot_confusion_matrix(cmTotal,PN,'FRDA SVM')
     #utils.plot_confusion_matrix(cmTotal, PN, 'SA KNN')
     #utils.plot_confusion_matrix(cmTotal, PN, 'SA MLP')
     #utils.plot_confusion_matrix(cmTotal, PN, 'ESMA SVM')
