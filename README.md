@@ -30,6 +30,8 @@ joblib.dump(clf, 'svm_model.pkl')
 loaded_model = joblib.load('svm_model.pkl')  
 --Testing  
 predictions = loaded_model.predict(x_test)  
+## # For XAI, You can uset the code FTIR_XCNNCLuster,py file
+ 
 
 ## # Datasets
 
