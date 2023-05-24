@@ -221,7 +221,7 @@ if __name__ == '__main__':
     # intensity=pca.fit_transform(intensity)
 
     #polymerName, waveLength, intensity, polymerID = utils.parseDataForSecondDataset('data/new_SecondDataset2.csv')
-    polymerName, waveLength, intensity, polymerID = utils.parseData4th('data/FourthdatasetFollp-r.csv')
+    polymerName, waveLength, intensity, polymerID = utils.parseData4th('dataset/FourthdatasetFollp-r.csv')
     waveLength = np.array(waveLength)
     intensity = np.array(intensity, dtype=np.float)
 
