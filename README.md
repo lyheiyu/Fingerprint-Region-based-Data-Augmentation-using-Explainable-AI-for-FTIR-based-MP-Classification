@@ -73,7 +73,7 @@ python FTIR_DataAugmentation_Hannah.py
 
 ## 1DCAM Usage
 
-The usage of 1D-CAM can be summarized as follows: 
+The 1D-CAM can be used as follows: 
 -	Training a classification model using 1D-CNN layer
 -	Creating 1D-CAM based the trained network (using the layer before the output layer and parameters).
 -	Inputting the new sample data to classification model and obtaining classification result.
