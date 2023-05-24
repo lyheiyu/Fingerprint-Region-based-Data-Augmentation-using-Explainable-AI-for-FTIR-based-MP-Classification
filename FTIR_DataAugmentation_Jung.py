@@ -222,7 +222,7 @@ if __name__ == '__main__':
     # pca = PCA(n_components=0.99)
     # intensity=pca.fit_transform(intensity)
 
-    polymerName, waveLength, intensity, polymerID = utils.parseDataForSecondDataset('data/new_SecondDataset2.csv')
+    polymerName, waveLength, intensity, polymerID = utils.parseDataForSecondDataset('dataset/new_SecondDataset2.csv')
     waveLength = np.array(waveLength)
     print(waveLength)
     if waveLength[0] > waveLength[-1]:
