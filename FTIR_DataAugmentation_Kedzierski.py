@@ -208,7 +208,7 @@ from FTIR_fit_least_square import generatedataBySperateLSforEach3,\
     generatedataBySperateLSforEach8,generatedataBySperateLSforEach9,generatedataBySperateLSforEach10,generatedataBySperateLSforEach11
 if __name__ == '__main__':
 
-    polymerName, waveLength, intensity, polymerID, x_each, y_each = utils.parseData11('data/D4_4_publication11.csv', 2, 1763)
+    polymerName, waveLength, intensity, polymerID, x_each, y_each = utils.parseData11('dataset/D4_4_publication11.csv', 2, 1763)
     # MMScaler = MinMaxScaler()
     # # ss = StandardScaler()
     # intensity=MMScaler.fit_transform(intensity)
