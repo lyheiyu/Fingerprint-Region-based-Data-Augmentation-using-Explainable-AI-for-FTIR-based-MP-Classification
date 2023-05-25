@@ -83,7 +83,7 @@ The 1D-CAM can be used as follows:
 Generating influence data curve using 1DCAM 
 ```
 
-python FTIR_.1DCAM.py
+python FTIR_1DCAM.py
 
 ```
 
