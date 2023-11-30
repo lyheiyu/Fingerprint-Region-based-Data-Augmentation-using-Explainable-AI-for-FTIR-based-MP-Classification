@@ -19,10 +19,12 @@ Here is the introduction of each code file.
 
 FTIR_1DCAM.py is used for training the 1DCAM model that is built by Keras. You can use it to train you own model,
 FTIR_AugmentationBased....py is used for ESMA methods. 
-FTIR_GaussinMixture.py is used for clustering each influence curve obtained from the 1DCAM and returning the separate point.FTIR_XCNN is the identical file to the FTIR_1DCAM.
+FTIR_GaussinMixture.py is used for clustering each influence curve obtained from the 1DCAM and returning the separate point.
+FTIR_XCNN is the identical file to the FTIR_1DCAM.
 FTIR_fit_least_square.py is used for separating the curve and randomly selecting and combining the data.
-PLS.py is used for baseline reducing algorithms.utils.py is used for reading data and plotting the confusion matrix.
+PLS.py is used for baseline reducing algorithms.
 utils.py is used for reading data and plotting the confusion matrix.
+
 
 
 
